@@ -3,6 +3,6 @@ title: "presentations"
 
 ---
 
-# Presentations
+This is a non-exhaustive list of presentation that I have given.
 
-* Introduction to R
+* Introduction to R, __Wake Forest University Professional Development__, March 2017

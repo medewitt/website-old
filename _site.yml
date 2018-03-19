@@ -8,9 +8,9 @@ navbar:
     - text: "say hello"
       menu:
         - icon: fa-twitter
-          href: https://twitter.com/medewit
+          href: https://twitter.com/medewittjr
         - icon: fa-github
-          href: https://github.com/medewittjr
+          href: https://github.com/medewitt
         - icon: fa-envelope
           href: mailto:dewittme@wfu.edu
     - text: "about me"

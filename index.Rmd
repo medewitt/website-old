@@ -6,16 +6,26 @@ title: "Personal Website"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Welcome to my website!
+
 # My Professional Passions
 
 * Statistics
+
 * R 
+
 * Bayesian Statics
+
 * Causal Inference
+
 * Monte Carlo Simulation
 
 # Non Statistics...
 
 * Family
+
 * Breweries
+
 * Food...
+
+* Live music

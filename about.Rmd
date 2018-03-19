@@ -9,7 +9,15 @@ knitr::opts_chunk$set(echo = TRUE)
 I'm a data scientist at Wake Forest University in Winston Salem, NC. I come to the world of higher education after nearly tens years in manufacturing. My interests are now in: 
 
 * General Data Science
+
 * Bayesian Statistics
+
 * Causal Inference
+
 * Survey Analysis
+
 * Applied Machine Learning
+
+I came into statistics and data science from chemical engineering (which is what I studied in University). I also minored in philosophy and wrote my honors thesis in the English department. The liberal arts greatly increased by ability to communicate complex topics, simply. 
+
+After graduation I worked in industrial engineering at Michelin North America in plant industrial engineering and continuous improvement and at the central level in industrial engineering, project management and decision support and analysis. 

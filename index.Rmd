@@ -1,0 +1,21 @@
+---
+title: "Personal Website"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# My Professional Passions
+
+* Statistics
+* R 
+* Bayesian Statics
+* Causal Inference
+* Monte Carlo Simulation
+
+# Non Statistics...
+
+* Family
+* Breweries
+* Food...

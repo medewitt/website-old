@@ -1,0 +1,27 @@
+name: "Michael-DeWitt"
+output_dir: "."
+navbar:
+  title: "Michael DeWitt"
+  right:
+    - text: "home"
+      href: index.html
+    - text: "say hello"
+      menu:
+        - icon: fa-twitter
+          href: https://twitter.com/medewit
+        - icon: fa-github
+          href: https://github.com/medewitt
+        - icon: fa-envelope
+          href: mailto:dewittme@wfu.edu
+    - text: "about me"
+      href: about.html
+    - text: "blog"
+      href: http://users.wfu.edu/dewittme/
+    - text: "presentations"
+      href: presentations.html
+
+output:
+  html_document:
+    theme: journal
+    highlight: textmate
+    css: css/style.css

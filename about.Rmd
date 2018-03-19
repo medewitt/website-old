@@ -1,0 +1,15 @@
+---
+title: "About Me"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+I'm a data scientist at Wake Forest University in Winston Salem, NC. I come to the world of higher education after nearly tens years in manufacturing. My interests are now in: 
+
+* General Data Science
+* Bayesian Statistics
+* Causal Inference
+* Survey Analysis
+* Applied Machine Learning

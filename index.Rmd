@@ -1,5 +1,5 @@
 ---
-title: "Personal Website"
+title: ""
 ---
 
 ```{r setup, include=FALSE}
@@ -14,15 +14,21 @@ Welcome to my website!
 
 * R 
 
-* Bayesian Statics
+* Bayesian Statistics
 
 * Causal Inference
+
+* Data visualisation
+
+* Teaching
 
 * Monte Carlo Simulation
 
 # Non Statistics...
 
 * Family
+
+* R (still a passion)
 
 * Breweries
 

@@ -11,4 +11,4 @@ This is a non-exhaustive list of presentations that I have given.
 
 ## Manuscript
 
-* [**Data Science for Institutional Research (DS4IR)**](michaeldewittjr.com/ds4ir)
+* [**Data Science for Institutional Research (DS4IR)**](ds4ir)

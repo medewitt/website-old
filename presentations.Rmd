@@ -1,7 +1,9 @@
 ---
-title: "presentations"
+title:""
 
 ---
+
+## presentations
 
 This is a non-exhaustive list of presentations that I have given.
 
@@ -9,6 +11,8 @@ This is a non-exhaustive list of presentations that I have given.
 
 * **Graphing Different Kinds of Data**, _Wake Forest University Business Analytics Team_, November 2017
 
-## Manuscript
+## manuscript
+
+I'm currently working on a manuuscript that focuses on application of data science to Institutional Research. This is trying to distill my experience on modeling and workflow into one reference. Still a work in progress, but the draft is below:
 
 * [**Data Science for Institutional Research (DS4IR)**](ds4ir)

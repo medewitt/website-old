@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Currently
 
-I'm a data scientist at Wake Forest University in Winston Salem, NC. I come to the world of higher education after nearly tens years in manufacturing. My interests are now in: 
+I'm a data scientist at Wake Forest University in Winston Salem, NC. I come to the world of higher education after nearly ten years in manufacturing. My interests are now in: 
 
 * General Data Science
 
@@ -18,7 +18,7 @@ I'm a data scientist at Wake Forest University in Winston Salem, NC. I come to t
 
 * Survey Analysis
 
-* Applied Machine Learning
+* Applied Machine Learning and Prediction
 
 # Before
 I came into statistics and data science from chemical engineering (which is what I studied in University). I also minored in philosophy and wrote my honors thesis in the English department. The liberal arts greatly increased by ability to communicate complex topics, simply. 

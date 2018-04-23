@@ -27,3 +27,5 @@ output:
     theme: journal
     highlight: textmate
     css: css/style.css
+    includes:
+      in_header: GA.html

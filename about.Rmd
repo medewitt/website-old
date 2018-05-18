@@ -25,4 +25,4 @@ I came into statistics and data science from chemical engineering (which is what
 
 After graduation I worked in industrial engineering at Michelin North America in plant industrial engineering and continuous improvement and at the central level in industrial engineering, project management and decision support and analysis.
 
-It you want to learn more, check out my resume [here](/docs/dewittresume.pdf).
+It you want to learn more, check out my resume [here](docs/dewittresume.pdf).

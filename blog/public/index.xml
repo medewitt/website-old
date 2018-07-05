@@ -6,10 +6,19 @@
     <description>Recent content on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/blog/public/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ggrough a good way make graphics look user generated</title>
+      <link>/blog/public/2018/07/05/ggrough-a-good-way-make-graphics-look-user-generated/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/public/2018/07/05/ggrough-a-good-way-make-graphics-look-user-generated/</guid>
+      <description>So I came across another ggplot2 package which I like. It bootstraps off of a javascript library called roughjs. I like that you can make graphs and charts that look handdrawn. This is a great feature when doing data communication. It makes the look less clinical which might be a good tactic when doing a data visualisation clinic where the focus is on the chart type and how it communicates.</description>
+    </item>
     
     <item>
       <title>About</title>

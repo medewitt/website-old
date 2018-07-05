@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<title>ggrough a good way make graphics look user generated - A Hugo website</title>
+<meta property="og:title" content="ggrough a good way make graphics look user generated - A Hugo website">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/blog/public/css/fonts.css" media="all">
+<link rel="stylesheet" href="/blog/public/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/blog/public/" class="nav-logo">
+    <img src="/blog/public/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blog/public/about/">About</a></li>
+    
+    <li><a href="https://github.com/medewitt">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/medewittjr">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">ggrough a good way make graphics look user generated</h1>
+
+    
+    <span class="article-date">2018/07/05</span>
+    
+
+    <div class="article-content">
+      <script src="/blog/public/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/blog/public/rmarkdown-libs/roughjs/rough.min.js"></script>
+<script src="/blog/public/rmarkdown-libs/ggrough-binding/ggrough.js"></script>
+
+
+<p>So I came across another <code>ggplot2</code> package which I like. It bootstraps off of a javascript library called <code>roughjs</code>. I like that you can make graphs and charts that look handdrawn. This is a great feature when doing data communication. It makes the look less clinical which might be a good tactic when doing a data visualisation clinic where the focus is on the chart type and how it communicates.</p>
+<p>Warm and friendly is a good approach when doing these types of trainings with graphical neophytes.</p>
+<p>The package information is <a href="https://xvrdm.github.io/ggrough/">here</a></p>
+<p>Some examples of their code are below:</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages ----------------------------------------------------------------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.0.0     v purrr   0.2.5
+## v tibble  1.4.2     v dplyr   0.7.5
+## v tidyr   0.8.1     v stringr 1.3.1
+## v readr   1.1.1     v forcats 0.3.0</code></pre>
+<pre><code>## -- Conflicts -------------------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(ggrough)</code></pre>
+<pre class="r"><code>count(mtcars, carb) %&gt;%
+  ggplot(aes(carb, n)) +
+  geom_col() + 
+  labs(title=&quot;Number of cars by carburator count&quot;) + 
+  theme_grey(base_size = 16) -&gt; p 
+p</code></pre>
+<p><img src="/blog/public/post/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>options &lt;- list(
+  Background=list(roughness=8),
+  GeomCol=list(fill_style=&quot;zigzag&quot;, angle_noise=0.5, fill_weight=2))
+get_rough_chart(p, options)</code></pre>
+<pre><code>## Warning: package &#39;gdtools&#39; was built under R version 3.5.1</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="ggrough html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":[{"height":"324.00","style":{"stroke-width":"1.55","stroke":"#FFFFFF","fill":"#FFFFFF"},"width":"453.60","x":"0.00","y":"0.00","shape":"rect","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"247.82","style":{"stroke-width":"1.55","stroke":"none","fill":"#EBEBEB"},"width":"387.50","x":"58.13","y":"31.78","shape":"rect","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"157.70","style":{"stroke-width":"0.00","stroke":"none","stroke-linecap":"butt"},"width":"40.13","x":"75.75","y":"110.64","shape":"rect","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"225.29","style":{"stroke-width":"0.00","stroke":"none","stroke-linecap":"butt"},"width":"40.13","x":"120.34","y":"43.05","shape":"rect","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"67.59","style":{"stroke-width":"0.00","stroke":"none","stroke-linecap":"butt"},"width":"40.13","x":"164.93","y":"200.75","shape":"rect","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"225.29","style":{"stroke-width":"0.00","stroke":"none","stroke-linecap":"butt"},"width":"40.13","x":"209.52","y":"43.05","shape":"rect","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"22.53","style":{"stroke-width":"0.00","stroke":"none","stroke-linecap":"butt"},"width":"40.13","x":"298.70","y":"245.81","shape":"rect","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"22.53","style":{"stroke-width":"0.00","stroke":"none","stroke-linecap":"butt"},"width":"40.13","x":"387.88","y":"245.81","shape":"rect","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M58.13,240.18 445.63,240.18Z","style":{"stroke-width":"0.78","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M58.13,183.86 445.63,183.86Z","style":{"stroke-width":"0.78","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M58.13,127.53 445.63,127.53Z","style":{"stroke-width":"0.78","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M58.13,71.21 445.63,71.21Z","style":{"stroke-width":"0.78","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M95.81,279.61 95.81,31.78Z","style":{"stroke-width":"0.78","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M184.99,279.61 184.99,31.78Z","style":{"stroke-width":"0.78","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M274.18,279.61 274.18,31.78Z","style":{"stroke-width":"0.78","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M363.36,279.61 363.36,31.78Z","style":{"stroke-width":"0.78","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M58.13,268.34 445.63,268.34Z","style":{"stroke-width":"1.55","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M58.13,212.02 445.63,212.02Z","style":{"stroke-width":"1.55","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M58.13,155.70 445.63,155.70Z","style":{"stroke-width":"1.55","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M58.13,99.37 445.63,99.37Z","style":{"stroke-width":"1.55","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M58.13,43.05 445.63,43.05Z","style":{"stroke-width":"1.55","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M140.40,279.61 140.40,31.78Z","style":{"stroke-width":"1.55","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M229.59,279.61 229.59,31.78Z","style":{"stroke-width":"1.55","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M318.77,279.61 318.77,31.78Z","style":{"stroke-width":"1.55","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M407.95,279.61 407.95,31.78Z","style":{"stroke-width":"1.55","stroke":"#FFFFFF","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M54.15,268.34 58.13,268.34Z","style":{"stroke-width":"1.55","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M54.15,212.02 58.13,212.02Z","style":{"stroke-width":"1.55","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M54.15,155.70 58.13,155.70Z","style":{"stroke-width":"1.55","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M54.15,99.37 58.13,99.37Z","style":{"stroke-width":"1.55","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M54.15,43.05 58.13,43.05Z","style":{"stroke-width":"1.55","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M140.40,283.59 140.40,279.61Z","style":{"stroke-width":"1.55","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M229.59,283.59 229.59,279.61Z","style":{"stroke-width":"1.55","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M318.77,283.59 318.77,279.61Z","style":{"stroke-width":"1.55","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"points":"M407.95,283.59 407.95,279.61Z","style":{"stroke-width":"1.55","stroke":"#333333","stroke-linecap":"butt"},"shape":"path","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":0.5,"bowing":0.5,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"0.0","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"12.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"18.07px","x":"32.89","y":"273.00","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"2.5","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"12.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"18.07px","x":"32.89","y":"216.67","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"5.0","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"12.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"18.07px","x":"32.89","y":"160.35","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"7.5","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"12.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"18.07px","x":"32.89","y":"104.03","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"10.0","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"12.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"25.30px","x":"25.66","y":"47.70","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"2","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"12.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"7.23px","x":"136.79","y":"296.09","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"4","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"12.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"7.23px","x":"225.97","y":"296.09","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"6","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"12.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"7.23px","x":"315.15","y":"296.09","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"8","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"12.80px","fill":"#4D4D4D","font-family":"Arial"},"textLength":"7.23px","x":"404.34","y":"296.09","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"carb","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"16.00px","font-family":"Arial"},"textLength":"31.12px","x":"236.32","y":"313.78","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"n","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"16.00px","font-family":"Arial"},"textLength":"8.90px","transform":"translate(19.42,160.14) rotate(-90)","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"content":"Number of cars by carburator count","lengthAdjust":"spacingAndGlyphs","style":{"font-size":"19.20px","font-family":"Arial"},"textLength":"298.85px","x":"58.13","y":"21.56","shape":"text","geom":"Background","rough_options":{"fill_style":"solid","fill_weight":4,"roughness":8,"bowing":1,"simplification":0,"angle":60,"angle_noise":0,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"157.70","style":{"stroke-width":"1.07","stroke":"none","stroke-linecap":"butt","fill":"#595959"},"width":"40.13","x":"75.75","y":"110.64","shape":"rect","geom":"GeomCol","rough_options":{"fill_style":"zigzag","fill_weight":2,"roughness":1.5,"bowing":1,"simplification":0,"angle":60,"angle_noise":0.5,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"225.29","style":{"stroke-width":"1.07","stroke":"none","stroke-linecap":"butt","fill":"#595959"},"width":"40.13","x":"120.34","y":"43.05","shape":"rect","geom":"GeomCol","rough_options":{"fill_style":"zigzag","fill_weight":2,"roughness":1.5,"bowing":1,"simplification":0,"angle":60,"angle_noise":0.5,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"67.59","style":{"stroke-width":"1.07","stroke":"none","stroke-linecap":"butt","fill":"#595959"},"width":"40.13","x":"164.93","y":"200.75","shape":"rect","geom":"GeomCol","rough_options":{"fill_style":"zigzag","fill_weight":2,"roughness":1.5,"bowing":1,"simplification":0,"angle":60,"angle_noise":0.5,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"225.29","style":{"stroke-width":"1.07","stroke":"none","stroke-linecap":"butt","fill":"#595959"},"width":"40.13","x":"209.52","y":"43.05","shape":"rect","geom":"GeomCol","rough_options":{"fill_style":"zigzag","fill_weight":2,"roughness":1.5,"bowing":1,"simplification":0,"angle":60,"angle_noise":0.5,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"22.53","style":{"stroke-width":"1.07","stroke":"none","stroke-linecap":"butt","fill":"#595959"},"width":"40.13","x":"298.70","y":"245.81","shape":"rect","geom":"GeomCol","rough_options":{"fill_style":"zigzag","fill_weight":2,"roughness":1.5,"bowing":1,"simplification":0,"angle":60,"angle_noise":0.5,"gap":6,"gap_noise":0,"alpha_over":1}},{"height":"22.53","style":{"stroke-width":"1.07","stroke":"none","stroke-linecap":"butt","fill":"#595959"},"width":"40.13","x":"387.88","y":"245.81","shape":"rect","geom":"GeomCol","rough_options":{"fill_style":"zigzag","fill_weight":2,"roughness":1.5,"bowing":1,"simplification":0,"angle":60,"angle_noise":0.5,"gap":6,"gap_noise":0,"alpha_over":1}}]},"evals":[],"jsHooks":[]}</script>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/blog/public/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/blog/public/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

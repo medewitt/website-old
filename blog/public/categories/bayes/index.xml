@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bayes on A Hugo website</title>
+    <link>/blog/public/categories/bayes/</link>
+    <description>Recent content in Bayes on A Hugo website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/blog/public/categories/bayes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bayesian Time Series Analysis with bsts</title>
+      <link>/blog/public/2018/07/05/bayesian-time-series-analysis-with-bsts/</link>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/public/2018/07/05/bayesian-time-series-analysis-with-bsts/</guid>
+      <description>Bayesian methods are where we need to go. I have pretty strong opinions on this as Bayes provides a way to attune for our prior understanding of the world, move away from null hypothesis testing and take advantage of prior work. Additionally, hierarchical modeling provides a way to collectively pool strength when you have a smaller number of data points. All in all it is a great way to do analysis.</description>
+    </item>
+    
+  </channel>
+</rss>

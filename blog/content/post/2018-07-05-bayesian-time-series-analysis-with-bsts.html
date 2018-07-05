@@ -1,0 +1,370 @@
+---
+title: Bayesian Time Series Analysis with bsts
+author: Michael DeWutt
+date: '2018-07-05'
+slug: bayesian-time-series-analysis-with-bsts
+categories:
+  - timeseries
+  - bayes
+tags:
+  - timeseries
+  - bayes
+---
+
+
+
+<p>Bayesian methods are where we need to go. I have pretty strong opinions on this as Bayes provides a way to attune for our prior understanding of the world, move away from null hypothesis testing and take advantage of prior work. Additionally, hierarchical modeling provides a way to collectively pool strength when you have a smaller number of data points. All in all it is a great way to do analysis.</p>
+<p>When working with time series analysis, the benefits of Bayesian methods are also great. Bayes provides a way to use an hierarchical modeling approach, and assign probabilities to the outcomes. This super direct way of using uncertainity makes it a nice foil to 95% confidence intervals.</p>
+<p>I have take the examples from StichFix’s <a href="https://multithreaded.stitchfix.com/blog/2016/04/21/forget-arima/">blog</a> where they contrast the methods of ARIMA and Bayesian Structural Times Series Modeling.</p>
+<div id="arima" class="section level2">
+<h2>Arima</h2>
+<p>Autoregressive integrated moving average modeling technique with differencing = 1, and moving average term of 1.</p>
+<pre class="r"><code>library(lubridate)
+library(bsts)
+library(dplyr)
+library(ggplot2)
+library(forecast)
+
+
+### Load the data
+data(&quot;AirPassengers&quot;)
+Y &lt;- window(AirPassengers, start=c(1949, 1), end=c(1959,12))
+
+### Fit the ARIMA model
+arima &lt;- arima(log10(Y), 
+               order=c(0, 1, 1), 
+               seasonal=list(order=c(0,1,1), period=12))
+
+### Actual versus predicted
+d1 &lt;- data.frame(c(10^as.numeric(fitted(arima)), # fitted and predicted
+                   10^as.numeric(predict(arima, n.ahead = 12)$pred)),
+                   as.numeric(AirPassengers), #actual values
+                   as.Date(time(AirPassengers)))
+names(d1) &lt;- c(&quot;Fitted&quot;, &quot;Actual&quot;, &quot;Date&quot;)
+
+
+### MAPE (mean absolute percentage error)
+MAPE &lt;- filter(d1, year(Date)&gt;1959) %&gt;% summarise(MAPE=mean(abs(Actual-Fitted)/Actual))
+
+### Plot actual versus predicted
+ggplot(data=d1, aes(x=Date)) +
+  geom_line(aes(y=Actual, colour = &quot;Actual&quot;), size=1.2) +
+  geom_line(aes(y=Fitted, colour = &quot;Fitted&quot;), size=1.2, linetype=2) +
+  theme_bw() + theme(legend.title = element_blank()) + 
+  ylab(&quot;&quot;) + xlab(&quot;&quot;) +
+  geom_vline(xintercept=as.numeric(as.Date(&quot;1959-12-01&quot;)), linetype=2) +
+  ggtitle(paste0(&quot;ARIMA -- Holdout MAPE = &quot;, round(100*MAPE,2), &quot;%&quot;)) + 
+  theme(axis.text.x=element_text(angle = -90, hjust = 0))</code></pre>
+<p><img src="/blog/public/post/2018-07-05-bayesian-time-series-analysis-with-bsts_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="bayesian-structural-model" class="section level2">
+<h2>Bayesian Structural Model</h2>
+<blockquote>
+<p>A different approach would be to use a Bayesian structural time series model with unobserved components. This technique is more transparent than ARIMA models and deals with uncertainty in a more elegant manner. It is more transparent because its representation does not rely on differencing, lags and moving averages. You can visually inspect the underlying components of the model. It handles uncertainty in a better way because you can quantify the posterior uncertainty of the individual components, control the variance of the components, and impose prior beliefs on the model. Last, but not least, any ARIMA model can be recast as a structural model.</p>
+</blockquote>
+<p>The model form thus takes:</p>
+<p><span class="math display">\[Y_t = \mu + x_t\beta+S_t + e_t\]</span>
+<span class="math display">\[e_t \sim N(0,\sigma^2_e)\]</span></p>
+<p><span class="math display">\[\mu_{t+1} = \mu_t + v_t\]</span>
+<span class="math display">\[v_t \sim N(0, \sigma^2_v\]</span></p>
+<blockquote>
+<p>Here xt denotes a set of regressors, St represents seasonality, and μt is the local level term. The local level term defines how the latent state evolves over time and is often referred to as the unobserved trend. This could, for example, represent an underlying growth in the brand value of a company or external factors that are hard to pinpoint, but it can also soak up short term fluctuations that should be controlled for with explicit terms. Note that the regressor coefficients, seasonality and trend are estimated simultaneously, which helps avoid strange coefficient estimates due to spurious relationships (similar in spirit to Granger causality, see 1). In addition, due to the Bayesian nature of the model, we can shrink the elements of β to promote sparsity or specify outside priors for the means in case we’re not able to get meaningful estimates from the historical data (more on this later).</p>
+</blockquote>
+<pre class="r"><code>library(lubridate)
+library(bsts)
+library(dplyr)
+library(ggplot2)
+
+### Load the data
+data(&quot;AirPassengers&quot;)
+Y &lt;- window(AirPassengers, start=c(1949, 1), end=c(1959,12))
+y &lt;- log10(Y)
+
+
+### Run the bsts model
+ss &lt;- AddLocalLinearTrend(list(), y)
+ss &lt;- AddSeasonal(ss, y, nseasons = 12)
+bsts.model &lt;- bsts(y, state.specification = ss, niter = 500, ping=0, seed=2016)
+
+### Get a suggested number of burn-ins
+burn &lt;- SuggestBurn(0.1, bsts.model)
+
+### Predict
+p &lt;- predict.bsts(bsts.model, horizon = 12, burn = burn, quantiles = c(.025, .975))
+
+### Actual versus predicted
+d2 &lt;- data.frame(
+    # fitted values and predictions
+    c(10^as.numeric(-colMeans(bsts.model$one.step.prediction.errors[-(1:burn),])+y),  
+    10^as.numeric(p$mean)),
+    # actual data and dates 
+    as.numeric(AirPassengers),
+    as.Date(time(AirPassengers)))
+names(d2) &lt;- c(&quot;Fitted&quot;, &quot;Actual&quot;, &quot;Date&quot;)
+
+### MAPE (mean absolute percentage error)
+MAPE &lt;- filter(d2, year(Date)&gt;1959) %&gt;% summarise(MAPE=mean(abs(Actual-Fitted)/Actual))
+
+### 95% forecast credible interval
+posterior.interval &lt;- cbind.data.frame(
+  10^as.numeric(p$interval[1,]),
+  10^as.numeric(p$interval[2,]), 
+  subset(d2, year(Date)&gt;1959)$Date)
+names(posterior.interval) &lt;- c(&quot;LL&quot;, &quot;UL&quot;, &quot;Date&quot;)
+
+### Join intervals to the forecast
+d3 &lt;- left_join(d2, posterior.interval, by=&quot;Date&quot;)
+
+### Plot actual versus predicted with credible intervals for the holdout period
+ggplot(data=d3, aes(x=Date)) +
+  geom_line(aes(y=Actual, colour = &quot;Actual&quot;), size=1.2) +
+  geom_line(aes(y=Fitted, colour = &quot;Fitted&quot;), size=1.2, linetype=2) +
+  theme_bw() + theme(legend.title = element_blank()) + ylab(&quot;&quot;) + xlab(&quot;&quot;) +
+  geom_vline(xintercept=as.numeric(as.Date(&quot;1959-12-01&quot;)), linetype=2) + 
+  geom_ribbon(aes(ymin=LL, ymax=UL), fill=&quot;grey&quot;, alpha=0.5) +
+  ggtitle(paste0(&quot;BSTS -- Holdout MAPE = &quot;, round(100*MAPE,2), &quot;%&quot;)) +
+  theme(axis.text.x=element_text(angle = -90, hjust = 0))</code></pre>
+<p><img src="/blog/public/post/2018-07-05-bayesian-time-series-analysis-with-bsts_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>credible.interval &lt;- cbind.data.frame(
+  10^as.numeric(apply(p$distribution, 2,function(f){quantile(f,0.75)})),
+  10^as.numeric(apply(p$distribution, 2,function(f){median(f)})),
+  10^as.numeric(apply(p$distribution, 2,function(f){quantile(f,0.25)})),
+  subset(d3, year(Date)&gt;1959)$Date)
+names(credible.interval) &lt;- c(&quot;p75&quot;, &quot;Median&quot;, &quot;p25&quot;, &quot;Date&quot;)
+
+credible.interval %&gt;% knitr::kable(digits = 0)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">p75</th>
+<th align="right">Median</th>
+<th align="right">p25</th>
+<th align="left">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">432</td>
+<td align="right">423</td>
+<td align="right">412</td>
+<td align="left">1960-01-01</td>
+</tr>
+<tr class="even">
+<td align="right">424</td>
+<td align="right">410</td>
+<td align="right">399</td>
+<td align="left">1960-02-01</td>
+</tr>
+<tr class="odd">
+<td align="right">494</td>
+<td align="right">478</td>
+<td align="right">464</td>
+<td align="left">1960-03-01</td>
+</tr>
+<tr class="even">
+<td align="right">480</td>
+<td align="right">461</td>
+<td align="right">445</td>
+<td align="left">1960-04-01</td>
+</tr>
+<tr class="odd">
+<td align="right">490</td>
+<td align="right">468</td>
+<td align="right">448</td>
+<td align="left">1960-05-01</td>
+</tr>
+<tr class="even">
+<td align="right">559</td>
+<td align="right">533</td>
+<td align="right">510</td>
+<td align="left">1960-06-01</td>
+</tr>
+<tr class="odd">
+<td align="right">627</td>
+<td align="right">596</td>
+<td align="right">569</td>
+<td align="left">1960-07-01</td>
+</tr>
+<tr class="even">
+<td align="right">632</td>
+<td align="right">601</td>
+<td align="right">567</td>
+<td align="left">1960-08-01</td>
+</tr>
+<tr class="odd">
+<td align="right">550</td>
+<td align="right">523</td>
+<td align="right">489</td>
+<td align="left">1960-09-01</td>
+</tr>
+<tr class="even">
+<td align="right">489</td>
+<td align="right">459</td>
+<td align="right">435</td>
+<td align="left">1960-10-01</td>
+</tr>
+<tr class="odd">
+<td align="right">432</td>
+<td align="right">404</td>
+<td align="right">381</td>
+<td align="left">1960-11-01</td>
+</tr>
+<tr class="even">
+<td align="right">486</td>
+<td align="right">458</td>
+<td align="right">427</td>
+<td align="left">1960-12-01</td>
+</tr>
+</tbody>
+</table>
+<p>You can also extract the different components</p>
+<pre class="r"><code>library(lubridate)
+library(bsts)
+library(ggplot2)
+library(reshape2)</code></pre>
+<pre><code>## Warning: package &#39;reshape2&#39; was built under R version 3.5.1</code></pre>
+<pre class="r"><code>### Set up the model
+data(&quot;AirPassengers&quot;)
+Y &lt;- window(AirPassengers, start=c(1949, 1), end=c(1959,12))
+y &lt;- log10(Y)
+ss &lt;- AddLocalLinearTrend(list(), y)
+ss &lt;- AddSeasonal(ss, y, nseasons = 12)
+bsts.model &lt;- bsts(y, state.specification = ss, niter = 500, ping=0, seed=2016)
+
+### Get a suggested number of burn-ins
+burn &lt;- SuggestBurn(0.1, bsts.model)
+
+### Extract the components
+components &lt;- cbind.data.frame(
+  colMeans(bsts.model$state.contributions[-(1:burn),&quot;trend&quot;,]),                               
+  colMeans(bsts.model$state.contributions[-(1:burn),&quot;seasonal.12.1&quot;,]),
+  as.Date(time(Y)))  
+names(components) &lt;- c(&quot;Trend&quot;, &quot;Seasonality&quot;, &quot;Date&quot;)
+components &lt;- melt(components, id=&quot;Date&quot;)
+names(components) &lt;- c(&quot;Date&quot;, &quot;Component&quot;, &quot;Value&quot;)
+
+### Plot
+ggplot(data=components, aes(x=Date, y=Value)) + geom_line() + 
+  theme_bw() + theme(legend.title = element_blank()) + ylab(&quot;&quot;) + xlab(&quot;&quot;) + 
+  facet_grid(Component ~ ., scales=&quot;free&quot;) + guides(colour=FALSE) + 
+  theme(axis.text.x=element_text(angle = -90, hjust = 0))</code></pre>
+<p><img src="/blog/public/post/2018-07-05-bayesian-time-series-analysis-with-bsts_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>And of course use Bayes for variable selection using the spike and slab method (I was trained to call it stochastic variable selection…but whatever)</p>
+<pre class="r"><code>library(lubridate)
+library(bsts)
+library(ggplot2)
+library(reshape2)
+
+### Fit the model with regressors
+data(iclaims)
+ss &lt;- AddLocalLinearTrend(list(), initial.claims$iclaimsNSA)
+ss &lt;- AddSeasonal(ss, initial.claims$iclaimsNSA, nseasons = 52)
+bsts.reg &lt;- bsts(iclaimsNSA ~ ., state.specification = ss, data =
+                initial.claims, niter = 500, ping=0, seed=2016)
+
+### Get the number of burn-ins to discard
+burn &lt;- SuggestBurn(0.1, bsts.reg)
+
+### Helper function to get the positive mean of a vector
+PositiveMean &lt;- function(b) {
+  b &lt;- b[abs(b) &gt; 0]
+  if (length(b) &gt; 0) 
+    return(mean(b))
+  return(0)
+}
+
+### Get the average coefficients when variables were selected (non-zero slopes)
+coeff &lt;- data.frame(melt(apply(bsts.reg$coefficients[-(1:burn),], 2, PositiveMean)))
+coeff$Variable &lt;- as.character(row.names(coeff))
+ggplot(data=coeff, aes(x=reorder(Variable,value), y=value)) + 
+  coord_flip()+
+  geom_bar(stat=&quot;identity&quot;, position=&quot;identity&quot;) + 
+  theme(axis.text.x=element_text(angle = -90, hjust = 0)) +
+  xlab(&quot;&quot;) + ylab(&quot;&quot;) + ggtitle(&quot;Average coefficients&quot;)</code></pre>
+<p><img src="/blog/public/post/2018-07-05-bayesian-time-series-analysis-with-bsts_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>### Inclusion probabilities -- i.e., how often were the variables selected 
+inclusionprobs &lt;- melt(colMeans(bsts.reg$coefficients[-(1:burn),] != 0))
+inclusionprobs$Variable &lt;- as.character(row.names(inclusionprobs))
+ggplot(data=inclusionprobs, aes(x=reorder(Variable, value), y=value)) + 
+  geom_bar(stat=&quot;identity&quot;, position=&quot;identity&quot;) + 
+  theme(axis.text.x=element_text(angle = -90, hjust = 0)) + 
+  coord_flip()+
+  xlab(&quot;&quot;) + ylab(&quot;&quot;) + ggtitle(&quot;Inclusion probabilities&quot;)</code></pre>
+<p><img src="/blog/public/post/2018-07-05-bayesian-time-series-analysis-with-bsts_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>library(lubridate)
+library(bsts)
+library(ggplot2)
+library(reshape2)
+
+### Fit the model with regressors
+data(iclaims)
+ss &lt;- AddLocalLinearTrend(list(), initial.claims$iclaimsNSA)
+ss &lt;- AddSeasonal(ss, initial.claims$iclaimsNSA, nseasons = 52)
+bsts.reg &lt;- bsts(iclaimsNSA ~ ., state.specification = ss, data =
+                initial.claims, niter = 500, ping=0, seed=2016)
+
+### Get the number of burn-ins to discard
+burn &lt;- SuggestBurn(0.1, bsts.reg)
+
+### Get the components
+components.withreg &lt;- cbind.data.frame(
+  colMeans(bsts.reg$state.contributions[-(1:burn),&quot;trend&quot;,]),
+  colMeans(bsts.reg$state.contributions[-(1:burn),&quot;seasonal.52.1&quot;,]),
+  colMeans(bsts.reg$state.contributions[-(1:burn),&quot;regression&quot;,]),
+  as.Date(time(initial.claims)))  
+names(components.withreg) &lt;- c(&quot;Trend&quot;, &quot;Seasonality&quot;, &quot;Regression&quot;, &quot;Date&quot;)
+components.withreg &lt;- melt(components.withreg, id.vars=&quot;Date&quot;)
+names(components.withreg) &lt;- c(&quot;Date&quot;, &quot;Component&quot;, &quot;Value&quot;)
+
+ggplot(data=components.withreg, aes(x=Date, y=Value)) + geom_line() + 
+  theme_bw() + theme(legend.title = element_blank()) + ylab(&quot;&quot;) + xlab(&quot;&quot;) + 
+  facet_grid(Component ~ ., scales=&quot;free&quot;) + guides(colour=FALSE) + 
+  theme(axis.text.x=element_text(angle = -90, hjust = 0))</code></pre>
+<p><img src="/blog/public/post/2018-07-05-bayesian-time-series-analysis-with-bsts_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>And of course adding priors</p>
+<pre class="r"><code>library(lubridate)
+library(bsts)
+library(ggplot2)
+library(reshape2)
+
+data(iclaims)
+
+prior.spikes &lt;- c(0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,1,0.1)
+prior.mean &lt;- c(0,0,0,0,0,0,0,0,0,0.6,0)
+
+### Helper function to get the positive mean of a vector
+PositiveMean &lt;- function(b) {
+  b &lt;- b[abs(b) &gt; 0]
+  if (length(b) &gt; 0) 
+    return(mean(b))
+  return(0)
+}
+
+### Set up the priors
+prior &lt;- SpikeSlabPrior(x=model.matrix(iclaimsNSA ~ ., data=initial.claims), 
+                        y=initial.claims$iclaimsNSA, 
+                        prior.information.weight = 200,
+                        prior.inclusion.probabilities = prior.spikes,
+                        optional.coefficient.estimate = prior.mean)
+                        
+### Run the bsts model with the specified priors
+data(iclaims)
+ss &lt;- AddLocalLinearTrend(list(), initial.claims$iclaimsNSA)
+ss &lt;- AddSeasonal(ss, initial.claims$iclaimsNSA, nseasons = 52)
+bsts.reg.priors &lt;- bsts(iclaimsNSA ~ ., state.specification = ss, 
+                        data = initial.claims, 
+                        niter = 500, 
+                        prior=prior, 
+                        ping=0, seed=2016)
+
+
+### Get the average coefficients when variables were selected (non-zero slopes)
+coeff &lt;- data.frame(melt(apply(bsts.reg.priors$coefficients[-(1:burn),], 2, PositiveMean)))
+coeff$Variable &lt;- as.character(row.names(coeff))
+ggplot(data=coeff, aes(x=Variable, y=value)) + 
+  geom_bar(stat=&quot;identity&quot;, position=&quot;identity&quot;) + 
+  theme(axis.text.x=element_text(angle = -90, hjust = 0)) + 
+  xlab(&quot;&quot;) + ylab(&quot;&quot;)</code></pre>
+<p><img src="/blog/public/post/2018-07-05-bayesian-time-series-analysis-with-bsts_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>So with all of this said we can build Bayesian structural time series models easily, adding prior information, use variable selection and accurately indicate our uncertainity about future predictions. This is pretty powerful stuff. It is also why these techniques are used for anomaly detection and causal inference.</p>
+</div>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/public/2018/07/05/bayesian-time-series-analysis-with-bsts/</loc>
+    <lastmod>2018-07-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/public/2018/07/05/ggrough-a-good-way-make-graphics-look-user-generated/</loc>
     <lastmod>2018-07-05T00:00:00+00:00</lastmod>
   </url>
@@ -29,7 +34,20 @@
   </url>
   
   <url>
+    <loc>/blog/public/tags/bayes/</loc>
+    <lastmod>2018-07-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/public/categories/bayes/</loc>
+    <lastmod>2018-07-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/blog/public/categories/</loc>
+    <lastmod>2018-07-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -65,6 +83,18 @@
   
   <url>
     <loc>/blog/public/tags/</loc>
+    <lastmod>2018-07-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/public/tags/timeseries/</loc>
+    <lastmod>2018-07-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/public/categories/timeseries/</loc>
     <lastmod>2018-07-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

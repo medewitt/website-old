@@ -1,0 +1,59 @@
+---
+title: gghighlight for the win
+author: Michael DeWitt
+date: '2018-07-04'
+slug: gghighlight-for-the-win
+categories:
+  - dataviz
+  - ggplot2
+tags:
+  - dataviz
+  - ggplot2
+---
+
+
+
+<p>gghighlight is a package that is on cran that allows one to highlight certain features ones finds valuable. Right now I typically do this with some custom color coding, then pass that into the <code>ggplot2</code> arguments. This might serve as a good way to more easily automate this task. Additionally, this could be super handy during exploratory analysis where this is much more iterative to find patterns.</p>
+<p>Our libraries of course….</p>
+<pre class="r"><code>library(ggplot2)
+library(gghighlight)</code></pre>
+<p>This code is copied directly from <a href="https://yutani.rbind.io/post/2017-10-06-gghighlight/">here</a>.</p>
+<p>Build some data which is more some white noise with a random walk.</p>
+<pre class="r"><code>set.seed(2)
+d &lt;- purrr::map_dfr(
+  letters,
+  ~ data.frame(idx = 1:400,
+               value = cumsum(runif(400, -1, 1)),
+               type = .,
+               stringsAsFactors = FALSE))</code></pre>
+<p>Definitely some messiness and colour overload!</p>
+<pre class="r"><code>ggplot(d) +
+  geom_line(aes(idx, value, colour = type))</code></pre>
+<p><img src="/blogpost/2018-07-04-gghighlight-for-the-win_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>The way I would do it…</p>
+<pre class="r"><code>library(dplyr, warn.conflicts = FALSE)</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.4.4</code></pre>
+<pre class="r"><code>d_filtered &lt;- d %&gt;%
+  group_by(type) %&gt;% 
+  filter(max(value) &gt; 20) %&gt;%
+  ungroup()</code></pre>
+<pre><code>## Warning: package &#39;bindrcpp&#39; was built under R version 3.4.4</code></pre>
+<pre class="r"><code>ggplot() +
+  # draw the original data series with grey
+  geom_line(aes(idx, value, group = type), data = d, colour = alpha(&quot;grey&quot;, 0.7)) +
+  # colourise only the filtered data
+  geom_line(aes(idx, value, colour = type), data = d_filtered)</code></pre>
+<p><img src="/blogpost/2018-07-04-gghighlight-for-the-win_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Now with this handy package we can do the following:</p>
+<pre class="r"><code>gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
+  theme_minimal()</code></pre>
+<p><img src="/blogpost/2018-07-04-gghighlight-for-the-win_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>And because it is a <code>ggplot</code> object we can add things to it.</p>
+<pre class="r"><code>gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
+  facet_wrap(~ type)</code></pre>
+<p><img src="/blogpost/2018-07-04-gghighlight-for-the-win_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>And some additional cool stuff:</p>
+<pre class="r"><code>gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
+                 max_highlight = 6)</code></pre>
+<p><img src="/blogpost/2018-07-04-gghighlight-for-the-win_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>The package author does offer a caveat that the package can run slowly with lots of data and filtering and to go back to using <code>dplyr</code> in a discrete step. I imagine it is because of all the grouped operations? Dunno, but this is a neat package to use for exploratory work.</p>

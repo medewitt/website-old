@@ -1,0 +1,47 @@
+---
+title: Let's Try Some Visualisation
+author: Michael DeWitt
+date: '2018-07-04'
+slug: let-s-try-some-visualisation
+categories: []
+tags:
+  - dataviz
+  - ggplot2
+---
+
+
+
+<p>So I am going to try to use this blog to capture programming tricks and examples of R coding, data visualisation and general musing that I find interesting. This is mainly for personal use and as a nice memory tool.</p>
+<p>Below is an example from Claus Wilke’s multiscales package. The details can be found <a href="https://github.com/clauswilke/multiscales">here</a>. I like that it uses <code>geom_sf</code> and one can also use the value suppressing uncertainity palettes. I often want to communicate uncertainity in cartographic mapping and this provides a much better way to do that. More on that article <a href="https://idl.cs.washington.edu/files/2018-UncertaintyPalettes-CHI.pdf">here</a>.</p>
+<p>So now for the example that one can use as…thanks Claus</p>
+<pre class="r"><code>library(ggplot2)
+library(multiscales)</code></pre>
+<pre><code>## Note: The package &quot;multiscales&quot; is highly experimental. Use at your own risk.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;multiscales&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:utils&#39;:
+## 
+##     zip</code></pre>
+<pre class="r"><code>colors &lt;- scales::colour_ramp(
+  colors = c(red = &quot;#AC202F&quot;, purple = &quot;#740280&quot;, blue = &quot;#2265A3&quot;)
+)((0:7)/7)
+
+p&lt;-ggplot(US_polling) + 
+  geom_sf(aes(fill = zip(Clinton_lead, moe_normalized)), color = &quot;gray30&quot;, size = 0.2) + 
+  coord_sf(datum = NA) +
+  bivariate_scale(&quot;fill&quot;,
+    pal_vsup(values = colors, max_desat = 0.8, pow_desat = 0.2, max_light = 0.7, pow_light = 1),
+    name = c(&quot;Clinton lead&quot;, &quot;uncertainty&quot;),
+    limits = list(c(-40, 40), c(0, 1)),
+    breaks = list(c(-40, -20, 0, 20, 40), c(0, 0.25, 0.50, 0.75, 1.)),
+    labels = list(waiver(), scales::percent),
+    guide = &quot;colourfan&quot;
+  ) +
+  theme_void() +
+  theme(
+    legend.key.size = grid::unit(0.8, &quot;cm&quot;),
+    legend.title.align = 0.5,
+    plot.margin = margin(5.5, 20, 5.5, 5.5)
+  )
+p</code></pre>
+<p><img src="/blogpost/2018-07-04-let-s-try-some-visualisation_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>

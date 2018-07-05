@@ -1,19 +1,75 @@
----
-title: gghighlight for the win
-author: Michael DeWitt
-date: '2018-07-04'
-slug: gghighlight-for-the-win
-categories:
-  - dataviz
-  - ggplot2
-tags:
-  - dataviz
-  - ggplot2
----
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.29" />
+
+
+<title>gghighlight for the win - A Hugo website</title>
+<meta property="og:title" content="gghighlight for the win - A Hugo website">
 
 
 
-<p>gghighlight is a package that is on cran that allows one to highlight certain features ones finds valuable. Right now I typically do this with some custom color coding, then pass that into the <code>ggplot2</code> arguments. This might serve as a good way to more easily automate this task. Additionally, this could be super handy during exploratory analysis where this is much more iterative to find patterns.</p>
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/michaeldewittjr.com/blog/css/fonts.css" media="all">
+<link rel="stylesheet" href="/michaeldewittjr.com/blog/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/michaeldewittjr.com/blog/" class="nav-logo">
+    <img src="/michaeldewittjr.com/blog/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/michaeldewittjr.com/blog/about/">About</a></li>
+    
+    <li><a href="https://github.com/medewitt">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/medewittjr">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">gghighlight for the win</h1>
+
+    
+    <span class="article-date">2018/07/04</span>
+    
+
+    <div class="article-content">
+      <p>gghighlight is a package that is on cran that allows one to highlight certain features ones finds valuable. Right now I typically do this with some custom color coding, then pass that into the <code>ggplot2</code> arguments. This might serve as a good way to more easily automate this task. Additionally, this could be super handy during exploratory analysis where this is much more iterative to find patterns.</p>
 <p>Our libraries of course….</p>
 <pre class="r"><code>library(ggplot2)
 library(gghighlight)</code></pre>
@@ -57,3 +113,44 @@ d &lt;- purrr::map_dfr(
                  max_highlight = 6)</code></pre>
 <p><img src="/michaeldewittjr.com/blog/post/2018-07-04-gghighlight-for-the-win_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>The package author does offer a caveat that the package can run slowly with lots of data and filtering and to go back to using <code>dplyr</code> in a discrete step. I imagine it is because of all the grouped operations? Dunno, but this is a neat package to use for exploratory work.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/michaeldewittjr.com/blog/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/michaeldewittjr.com/blog/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

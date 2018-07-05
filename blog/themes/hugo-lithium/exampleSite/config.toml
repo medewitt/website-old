@@ -1,4 +1,4 @@
-baseurl = "michaeldewittjr.com/blog/"
+baseurl = "/"
 languageCode = "en-us"
 title = "A Hugo website"
 theme = "hugo-lithium"
@@ -14,10 +14,10 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     url = "/about/"
 [[menu.main]]
     name = "GitHub"
-    url = "https://github.com/medewitt"
+    url = "https://github.com/rstudio/blogdown"
 [[menu.main]]
     name = "Twitter"
-    url = "https://twitter.com/medewittjr"
+    url = "https://twitter.com/rstudio"
 
 [params]
     description = "A website built through Hugo and blogdown."

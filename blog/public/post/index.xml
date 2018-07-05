@@ -31,5 +31,14 @@ Below is an example from Claus Wilke’s multiscales package. The details can be
 Our libraries of course….</description>
     </item>
     
+    <item>
+      <title>test</title>
+      <link>/blog/public/2018/07/04/test/</link>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/public/2018/07/04/test/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

@@ -1,9 +1,0 @@
----
-title: test
-author: me
-date: '2018-07-04'
-slug: test
-categories: []
-tags:
-  - dataviz
----

@@ -18,11 +18,6 @@
   </url>
   
   <url>
-    <loc>/blog/public/2018/07/04/test/</loc>
-    <lastmod>2018-07-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/blog/public/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -34,25 +29,25 @@
   </url>
   
   <url>
-    <loc>/blog/public/categories/dataviz/</loc>
-    <lastmod>2018-07-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/blog/public/tags/dataviz/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/blog/public/categories/ggplot2/</loc>
+    <loc>/blog/public/categories/dataviz/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/blog/public/tags/ggplot2/</loc>
+    <lastmod>2018-07-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/public/categories/ggplot2/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

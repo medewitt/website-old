@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on A Hugo website</title>
-    <link>/blog/post/</link>
+    <link>/blog/public/post/</link>
     <description>Recent content in Posts on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 04 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/blog/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/blog/public/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Let&#39;s Try Some Visualisation</title>
-      <link>/blog/2018/07/04/let-s-try-some-visualisation/</link>
+      <link>/blog/public/2018/07/04/let-s-try-some-visualisation/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2018/07/04/let-s-try-some-visualisation/</guid>
+      <guid>/blog/public/2018/07/04/let-s-try-some-visualisation/</guid>
       <description>So I am going to try to use this blog to capture programming tricks and examples of R coding, data visualisation and general musing that I find interesting. This is mainly for personal use and as a nice memory tool.
 Below is an example from Claus Wilke’s multiscales package. The details can be found here. I like that it uses geom_sf and one can also use the value suppressing uncertainity palettes.</description>
     </item>
     
     <item>
       <title>gghighlight for the win</title>
-      <link>/blog/2018/07/04/gghighlight-for-the-win/</link>
+      <link>/blog/public/2018/07/04/gghighlight-for-the-win/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2018/07/04/gghighlight-for-the-win/</guid>
+      <guid>/blog/public/2018/07/04/gghighlight-for-the-win/</guid>
       <description>gghighlight is a package that is on cran that allows one to highlight certain features ones finds valuable. Right now I typically do this with some custom color coding, then pass that into the ggplot2 arguments. This might serve as a good way to more easily automate this task. Additionally, this could be super handy during exploratory analysis where this is much more iterative to find patterns.
 Our libraries of course….</description>
     </item>

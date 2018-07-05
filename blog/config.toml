@@ -1,4 +1,4 @@
-baseurl = "blog/"
+baseurl = "/blog/public/"
 languageCode = "en-us"
 title = "A Hugo website"
 theme = "hugo-lithium"

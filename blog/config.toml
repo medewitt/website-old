@@ -1,4 +1,4 @@
-baseurl = "michaeldewittjr.com/blog/public/"
+baseurl = "blog/"
 languageCode = "en-us"
 title = "A Hugo website"
 theme = "hugo-lithium"

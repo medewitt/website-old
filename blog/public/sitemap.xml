@@ -3,63 +3,63 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/michaeldewittjr.com/blog/public/about/</loc>
+    <loc>/blog/about/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/michaeldewittjr.com/blog/public/2018/07/04/let-s-try-some-visualisation/</loc>
+    <loc>/blog/2018/07/04/let-s-try-some-visualisation/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/michaeldewittjr.com/blog/public/2018/07/04/gghighlight-for-the-win/</loc>
+    <loc>/blog/2018/07/04/gghighlight-for-the-win/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/michaeldewittjr.com/blog/public/</loc>
-    <lastmod>2018-07-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/michaeldewittjr.com/blog/public/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/michaeldewittjr.com/blog/public/tags/dataviz/</loc>
+    <loc>/blog/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/michaeldewittjr.com/blog/public/categories/dataviz/</loc>
+    <loc>/blog/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/tags/dataviz/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/michaeldewittjr.com/blog/public/tags/ggplot2/</loc>
+    <loc>/blog/categories/dataviz/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/michaeldewittjr.com/blog/public/categories/ggplot2/</loc>
+    <loc>/blog/tags/ggplot2/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/michaeldewittjr.com/blog/public/post/</loc>
+    <loc>/blog/categories/ggplot2/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/michaeldewittjr.com/blog/public/tags/</loc>
+    <loc>/blog/post/</loc>
+    <lastmod>2018-07-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/tags/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

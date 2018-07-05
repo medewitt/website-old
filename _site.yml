@@ -18,7 +18,7 @@ navbar:
     - text: "about me"
       href: about.html
     - text: "blog"
-      href: http://users.wfu.edu/dewittme/
+      href: blog/public/index.html
     - text: "presentations"
       href: presentations.html
 

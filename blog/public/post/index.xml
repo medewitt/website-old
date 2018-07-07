@@ -6,10 +6,20 @@
     <description>Recent content in Posts on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/blog/public/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Speed it up</title>
+      <link>/blog/public/2018/07/06/speed-it-up/</link>
+      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/public/2018/07/06/speed-it-up/</guid>
+      <description>This will be a short post tonight. The topic is speeding up existing code. Typically the rule is make it work (e.g. do what you want it to do) before optimizing it. The trick then is that with some experience you can write your code so that you don’t box yourself into slow methods. That I won’t cover in this post.
+The hard part is then to know what is slowing you down.</description>
+    </item>
     
     <item>
       <title>Bayesian Time Series Analysis with bsts</title>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.29" />
+
+
+<title>Speed it up - A Hugo website</title>
+<meta property="og:title" content="Speed it up - A Hugo website">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/blog/public/css/fonts.css" media="all">
+<link rel="stylesheet" href="/blog/public/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/blog/public/" class="nav-logo">
+    <img src="/blog/public/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/blog/public/about/">About</a></li>
+    
+    <li><a href="https://github.com/medewitt">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/medewittjr">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Speed it up</h1>
+
+    
+    <span class="article-date">2018/07/06</span>
+    
+
+    <div class="article-content">
+      <script src="/blog/public/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/blog/public/rmarkdown-libs/jquery/jquery.min.js"></script>
+<script src="/blog/public/rmarkdown-libs/d3/d3.min.js"></script>
+<link href="/blog/public/rmarkdown-libs/profvis/profvis.css" rel="stylesheet" />
+<script src="/blog/public/rmarkdown-libs/profvis/profvis.js"></script>
+<link href="/blog/public/rmarkdown-libs/highlight/textmate.css" rel="stylesheet" />
+<script src="/blog/public/rmarkdown-libs/highlight/highlight.js"></script>
+<script src="/blog/public/rmarkdown-libs/profvis-binding/profvis.js"></script>
+
+
+<p>This will be a short post tonight. The topic is speeding up existing code. Typically the rule is make it work (e.g. do what you want it to do) before optimizing it. The trick then is that with some experience you can write your code so that you don’t box yourself into slow methods. That I won’t cover in this post.</p>
+<p>The hard part is then to know what is slowing you down. Perhaps you have optimised everything that you know how to do, use purrr and apply statements, move some code to cpp. Now what next?</p>
+<p>Enter profvis</p>
+<pre class="r"><code>library(&quot;profvis&quot;)</code></pre>
+<p>Profvis provides a way to visualise the memory allocation and speed of each of your code. This includes simple things:</p>
+<pre class="r"><code>profvis({
+  fit &lt;- lm(mpg ~ wt + disp , data = mtcars)
+  preds &lt;- predict(fit)
+  plot(preds)
+})</code></pre>
+<p><img src="/blog/public/post/2018-07-06-speed-it-up_files/figure-html/unnamed-chunk-2-1.png" width="672" /><div id="htmlwidget-1" style="width:100%;height:600px;" class="profvis html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"message":{"prof":{"time":[1,1,1,1,1,1,2,2,2,2],"depth":[6,5,4,3,2,1,4,3,2,1],"label":["axis","Axis.default","Axis","localAxis","plot.default","plot","box","localBox","plot.default","plot"],"filenum":[null,null,null,null,null,1,null,null,null,1],"linenum":[null,null,null,null,null,4,null,null,null,4],"memalloc":[8.10129547119141,8.10129547119141,8.10129547119141,8.10129547119141,8.10129547119141,8.10129547119141,8.10916900634766,8.10916900634766,8.10916900634766,8.10916900634766],"meminc":[0,0,0,0,0,0,0.00787353515625,0,0,0],"filename":[null,null,null,null,null,"<expr>",null,null,null,"<expr>"]},"interval":10,"files":[{"filename":"<expr>","content":"profvis({\n  fit <- lm(mpg ~ wt + disp , data = mtcars)\n  preds <- predict(fit)\n  plot(preds)\n})","normpath":"<expr>"}],"prof_output":"/var/folders/0x/6bnjy4n15kz8nbfbbwbyk3pr0000gn/T//RtmpyPsRZE/filee37b21df42a8.prof","highlight":{"output":["^output\\$"],"gc":["^<GC>$"],"stacktrace":["^\\.\\.stacktraceo(n|ff)\\.\\.$"]},"split":"h"}},"evals":[],"jsHooks":[]}</script></p>
+<p>Now we can see that the plotting function takes the majority of the time.</p>
+<p>This is a super trivial example, but knowledge of tools like this help for streamlining code, especially when pushing it to users. Sometimes you don’t know where the hang-up in your code is and this can help you understand what is happening.</p>
+<p>Then you can pull in other tools like <code>microbenchmark</code> or <code>bench</code> to time the different methods of improvement.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/blog/public/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/blog/public/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/blog/public/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

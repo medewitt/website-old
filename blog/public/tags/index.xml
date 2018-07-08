@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Blogdown</title>
+      <link>/blog/public/tags/blogdown/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/public/tags/blogdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Dataviz</title>
       <link>/blog/public/tags/dataviz/</link>
       <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
@@ -44,6 +53,15 @@
       <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/blog/public/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/blog/public/tags/r/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/public/tags/r/</guid>
       <description></description>
     </item>
     

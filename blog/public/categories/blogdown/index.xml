@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogdown on A Hugo website</title>
+    <link>/blog/public/categories/blogdown/</link>
+    <description>Recent content in Blogdown on A Hugo website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/blog/public/categories/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blogging is hard</title>
+      <link>/blog/public/2018/07/07/blogging-is-hard/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/public/2018/07/07/blogging-is-hard/</guid>
+      <description>Not really a post about statistics, but I must say that moving past the vanilla blogdown hugo themes one encounters a lot of hang ups and issues. I think this is partly because many themes haven’t been tested yet, which is foolish on my part, but also because the platform itself is pretty intricate. I sincerely appreciate Yihui Xie et al creating blogdown because it certainly has made this kind of blogging more accessible (easier) than say blogdown or spinnning up a WP site.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -18,7 +18,7 @@ navbar:
     - text: "about me"
       href: about.html
     - text: "blog"
-      href: blog/public/index.html
+      href: dewitt_blog/index.html
     - text: "presentations"
       href: presentations.html
 

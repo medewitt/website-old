@@ -1,0 +1,54 @@
+---
+title: Exploring forecast
+author: Michael DeWitt
+date: '2018-07-08'
+slug: exploring-forecast
+categories:
+  - timeseries
+  - forecasting
+  - r
+tags:
+  - timeseries
+  - r
+  - forecasting
+---
+
+Time series forecasting is interesting. I want to write more,  but not right now. I'm just going to lay out a few functions for explanation later.
+
+```{r}
+library(fpp2)
+library(purrr)
+library(dplyr)
+```
+
+I am going to test a few different methods:
+
+* Mean forecasting
+
+* Random Walk (last value is forecast with an addition)
+
+* Seasonal Naive (last seasons value is next guess)
+
+* Naive (Previous value is forecast)
+
+```{r}
+beer2 <- window(ausbeer, start= 1992, end = c(2007,4))
+
+beer_fit1 <- meanf(beer2, h=10)
+beer_fit2 <- rwf(beer2, h=10)
+beer_fit3 <- snaive(beer2, h=10)
+beer_fit4 <- naive(beer2, h=10)
+```
+
+
+Let's see how we did on the forecast.
+
+```{r}
+beer3 <- window(ausbeer, start =2008)
+
+models <- list(mean_forecast = beer_fit1, rand_walk = beer_fit2, seasonal_naive = beer_fit3,
+               naive = beer_fit4)
+map(models, accuracy, beer3)
+
+```
+

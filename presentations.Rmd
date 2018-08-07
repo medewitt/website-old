@@ -7,6 +7,8 @@ title:""
 
 This is a non-exhaustive list of presentations that I have given.
 
+* [**Comparing Two Groups: T-Test**](docs/2018-08_BAI_t-test.pdf), _Wake Forest University Business Analytics Team_, August 2018
+
 * [**Introduction to R**](https://github.com/medewitt/intro_to_r/blob/master/presentations/intro_presentation.pdf), _Wake Forest University Professional Development_, March 2018
 
 * **Graphing Different Kinds of Data**, _Wake Forest University Business Analytics Team_, November 2017

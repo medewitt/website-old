@@ -11,6 +11,10 @@ This is a non-exhaustive list of presentations that I have given.
 
 * [**Introduction to R**](https://github.com/medewitt/intro_to_r/blob/master/presentations/intro_presentation.pdf), _Wake Forest University Professional Development_, March 2018
 
+* [**Overview of Distributions**](docs/2018-02_BAI_distributions.pdf), _Wake Forest University Business Analytics Team_, February 2018
+
+* [**Measures of Central Tendency**](docs/2017-12_BAI_central_tendency.pdf), _Wake Forest University Business Analytics Team_, December 2017
+
 * **Graphing Different Kinds of Data**, _Wake Forest University Business Analytics Team_, November 2017
 
 ## technical papers

@@ -28,3 +28,9 @@ This is a non-exhaustive list of presentations that I have given.
 I'm currently working on a manuuscript that focuses on application of data science to Institutional Research. This is trying to distill my experience on modeling and workflow into one reference. Still a work in progress, but the draft is below:
 
 * [**Data Science for Institutional Research (DS4IR)**](ds4ir)
+
+## patents
+
+FR Appl. No. 18/51018 filed 7 February 2018 (N/R 2017PAT00317FR) : Procédé d’identifier, gérer et réincorporer les produits complexés comme les produits valorisés (_applied_)
+
+FR Appl. No. 18/51019 filed 7 February 2018 (N/R 2017PAT00431FR) : Système d’identifier, gérer et réincorporer les produits complexés comme les produits valorisés (_applied_)

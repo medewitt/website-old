@@ -29,6 +29,12 @@ I'm currently working on a manuuscript that focuses on application of data scien
 
 * [**Data Science for Institutional Research (DS4IR)**](ds4ir)
 
+## public comment
+
+This section represents any public analysis that has been presented to any public bodies.
+
+* [**Winston-Salem Public Transit Analysis**](https://michaeldewittjr.com/bus_analysis/) by Michael DeWitt, Phillip Summers, Jeff Bloomfield, Keena Moore, Megan Irby, _Winston-Salem City Council_, September 2018
+
 ## patents
 
 FR Appl. No. 18/51018 filed 7 February 2018 (N/R 2017PAT00317FR) : Procédé d’identifier, gérer et réincorporer les produits complexés comme les produits valorisés (_applied_)

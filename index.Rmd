@@ -14,15 +14,17 @@ Welcome to my website!
 
 * R 
 
-* Bayesian Statistics
+* Bayesian Statistics/ Predictive Modeling
 
 * Causal Inference
 
+* Survey Analysis
+
 * Data visualisation
 
-* Teaching
-
 * Monte Carlo Simulation
+
+* Teaching
 
 # Non Statistics...
 
@@ -30,8 +32,10 @@ Welcome to my website!
 
 * R (still a passion)
 
-* Breweries
+* Improving access to transportation
 
-* Food...
+* Touring breweries
+
+* Food and Travel
 
 * Live music

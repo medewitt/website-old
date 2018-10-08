@@ -7,6 +7,8 @@ title:"My Work"
 
 This is a non-exhaustive list of presentations that I have given.
 
+* **Does My Instructor Look Like Me: A Multi-Institution Look at Implicit Bias in Grading**,  _Southern Association for Institutional Research_, October 2018
+
 * [**Comparing Two Groups: Effect Sizes**](https://docs.google.com/presentation/d/e/2PACX-1vTACUkOIFra4TqEvaQUCakpsYk7KgIRBdyo14hLJ798GiPb8Z4bY0YlgvcJoj1yoDc1_9wtUXqOKbii/pub?start=false&loop=false&delayms=3000),  _Wake Forest University Business Analytics Team_, September 2018
 
 * [**Comparing Two Groups: T-Test**](docs/2018-08_BAI_t-test.pdf), _Wake Forest University Business Analytics Team_, August 2018

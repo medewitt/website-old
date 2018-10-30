@@ -39,6 +39,12 @@ This section represents any public analysis that has been presented to any publi
 
 * [**Winston-Salem Public Transit Analysis**](https://michaeldewittjr.com/bus_analysis/) by Michael DeWitt, Phillip Summers, Jeff Bloomfield, Keena Moore, Megan Irby, _Winston-Salem City Council_, September 2018
 
+## applications
+
+This sections represents public facing applications.
+
+* [**Winston-Salem Police Department Tracker**](https://mdewitt.shinyapps.io/wspd_scanner/) October 2018
+
 ## patents
 
 FR Appl. No. 18/51018 filed 7 February 2018 (N/R 2017PAT00317FR) : Procede d’identifier, gerer et réincorporer les produits complexes comme les produits valorises (_applied_)

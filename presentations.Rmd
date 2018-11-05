@@ -27,6 +27,10 @@ This is a non-exhaustive list of presentations that I have given.
 
 * [**Office of Institutional Research Survey Methodology**](https://prod.wp.cdn.aws.wfu.edu/sites/202/2018/05/oir_survey_methodology.pdf), _Wake Forest University_, May 2018
 
+## publications
+
+* [**Analysis of the Winston-Salem Public Transit System**](http://www.virginiapolicyreview.org/blog/analysis-of-the-winston-salem-public-transit-system) _ Virginia Policy Review_, October 2018
+
 ## manuscript
 
 I'm currently working on a manuuscript that focuses on application of data science to Institutional Research. This is trying to distill my experience on modeling and workflow into one reference. Still a work in progress, but the draft is below:

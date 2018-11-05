@@ -21,6 +21,8 @@ navbar:
       href: dewitt_blog/index.html
     - text: "presentations"
       href: presentations.html
+    - text: teaching
+      href: introduction_to_r/index.html
 
 output:
   html_document:

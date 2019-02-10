@@ -25,6 +25,8 @@ navbar:
       menu:
         - text: "Introduction to R"
           href: introduction_to_r/index.html
+        - text: "Advanced Analysis in R"
+          href: advanced_analysis_in_r/index.html
         - text: "Methods and Resources"
           href: resources/index.html
 

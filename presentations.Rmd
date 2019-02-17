@@ -1,6 +1,5 @@
 ---
 title:"My Work"
-
 ---
 
 ## presentations
@@ -48,6 +47,8 @@ This section represents any public analysis that has been presented to any publi
 This sections represents public facing applications.
 
 * [**Winston-Salem Police Department Tracker**](https://mdewitt.shinyapps.io/wspd_scanner/) October 2018
+
+* [**Algorithmic Bias Simulator**](https://mdewitt.shinyapps.io/bias_simulation/) February 2019
 
 ## patents
 

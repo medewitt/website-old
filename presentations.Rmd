@@ -6,7 +6,7 @@ title:"My Work"
 
 This is a non-exhaustive list of presentations that I have given.
 
-* **Designing a Student Retention Model**,  _North Carolina Independent Colleges and Universities Institutional Research Directors Meeting_, October 2018
+* **Designing a Student Retention Model**,  _North Carolina Independent Colleges and Universities Institutional Research Directors Meeting_, December 2018
 
 * **Does My Instructor Look Like Me: A Multi-Institution Look at Implicit Bias in Grading**,  _Southern Association for Institutional Research_, October 2018
 
@@ -49,6 +49,12 @@ This sections represents public facing applications.
 * [**Winston-Salem Police Department Tracker**](https://mdewitt.shinyapps.io/wspd_scanner/) October 2018
 
 * [**Algorithmic Bias Simulator**](https://mdewitt.shinyapps.io/bias_simulation/) February 2019
+
+## software
+
+Michael DeWitt, Mona Ahmadiani and Adam S. Hyde (2019). tidyqwi: A Convenient API for Accessing
+  United States Census Bureau's Quarterly Workforce Indicator. R package version 0.1.0.
+  <https://CRAN.R-project.org/package=tidyqwi>
 
 ## patents
 

@@ -25,6 +25,7 @@ Additionally, I am an advocate for improving mobility. In my spare time I volunt
 You can read more about my work [here](presentations.html)
 
 # Before
+
 I came into statistics and data science from chemical engineering (which is what I studied at University). I also minored in philosophy and wrote my honors thesis in the English department. The liberal arts greatly increased my ability to communicate complex topics, simply. 
 
 After graduation I worked in industrial engineering at Michelin North America in plant industrial engineering and continuous improvement and at the central level in industrial engineering, project management and decision support and analysis.

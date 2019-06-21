@@ -9,12 +9,19 @@ navbar:
       menu:
         - icon: fa-twitter
           href: https://twitter.com/medewittjr
+          text: "medewittjr"
         - icon: fa-github
           href: https://github.com/medewitt
+          text: "medewitt"
         - icon: fa-linkedin
           href: https://www.linkedin.com/in/michael-dewitt-jr/
-        - icon: fa-envelope
-          href: mailto:dewittme@wfu.edu
+          text: "michael-dewitt-jr"
+        - icon: fa-orcid
+          href: https://orcid.org/0000-0001-8940-1967
+        - icon: fa-lightbulb
+          tex: "ORCID"
+          href: mailto:me.dewitt.jr@gmail.com
+          text: "me.dewitt.jr@gmail.com"
     - text: "about me"
       href: about.html
     - text: "blog"

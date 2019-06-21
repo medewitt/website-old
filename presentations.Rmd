@@ -32,7 +32,7 @@ This is a non-exhaustive list of presentations that I have given.
 
 ## manuscript
 
-I'm currently working on a manuuscript that focuses on application of data science to Institutional Research. This is trying to distill my experience on modeling and workflow into one reference. Still a work in progress, but the draft is below:
+I'm currently working on a manuscript that focuses on application of data science to Institutional Research. This is trying to distill my experience on modeling and workflow into one reference. Still a work in progress, but the draft is below:
 
 * [**Data Science for Institutional Research (DS4IR)**](ds4ir)
 
@@ -52,9 +52,8 @@ This sections represents public facing applications.
 
 ## software
 
-Michael DeWitt, Mona Ahmadiani and Adam S. Hyde (2019). tidyqwi: A Convenient API for Accessing
-  United States Census Bureau's Quarterly Workforce Indicator. R package version 0.1.0.
-  <https://CRAN.R-project.org/package=tidyqwi>
+DeWitt et al., (2019). tidyqwi: A Tidy Approach to Accessing The US Census Bureau's Quarterly Workforce Indicators. Journal
+  of Open Source Software, 4(38), 1462, <https://doi.org/10.21105/joss.01462>
 
 ## patents
 

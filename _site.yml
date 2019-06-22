@@ -16,10 +16,10 @@ navbar:
         - icon: fa-linkedin
           href: https://www.linkedin.com/in/michael-dewitt-jr/
           text: "michael-dewitt-jr"
-        - icon: fa-orcid
-          href: https://orcid.org/0000-0001-8940-1967
         - icon: fa-lightbulb
-          tex: "ORCID"
+          href: https://orcid.org/0000-0001-8940-1967
+          text: "ORCID"
+        - icon: fa-envelope
           href: mailto:me.dewitt.jr@gmail.com
           text: "me.dewitt.jr@gmail.com"
     - text: "about me"

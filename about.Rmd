@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Currently
 
-I'm a data scientist at Wake Forest University in Winston-Salem, NC. I come to the world of higher education after nearly ten years in manufacturing. My interests are in: 
+I'm a data scientist at [Cone Health](https://www.conehealth.com/) in Greensboro, NC. I come to the world of higher education after nearly ten years in manufacturing and two in higher education. My interests are in: 
 
 * General Data Science
 
@@ -19,6 +19,8 @@ I'm a data scientist at Wake Forest University in Winston-Salem, NC. I come to t
 * Survey Analysis
 
 * Applied Machine Learning and Prediction
+
+* Simulation
 
 Additionally, I am an advocate for improving mobility. In my spare time I volunteer as a member of the Winston-Salem Transportation Coalition where we advocate for better public transit. I employ data science techniques in order to quantify and shed light on the issues. 
 

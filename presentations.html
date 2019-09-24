@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -256,18 +257,6 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -399,16 +388,20 @@ $(document).ready(function () {
 <li><p><strong>Graphing Different Kinds of Data</strong>, <em>Wake Forest University Business Analytics Team</em>, November 2017</p></li>
 </ul>
 </div>
-<div id="technical-papers" class="section level2">
-<h2>technical papers</h2>
-<ul>
-<li><a href="https://prod.wp.cdn.aws.wfu.edu/sites/202/2018/05/oir_survey_methodology.pdf"><strong>Office of Institutional Research Survey Methodology</strong></a>, <em>Wake Forest University</em>, May 2018</li>
-</ul>
-</div>
 <div id="publications" class="section level2">
 <h2>publications</h2>
 <ul>
 <li><a href="http://www.virginiapolicyreview.org/blog/analysis-of-the-winston-salem-public-transit-system"><strong>Analysis of the Winston-Salem Public Transit System</strong></a> <em>Virginia Policy Review</em>, October 2018</li>
+</ul>
+</div>
+<div id="software" class="section level2">
+<h2>software</h2>
+<p>DeWitt et al., (2019). tidyqwi: A Tidy Approach to Accessing The US Census Bureau’s Quarterly Workforce Indicators. Journal of Open Source Software, 4(38), 1462, <a href="https://doi.org/10.21105/joss.01462" class="uri">https://doi.org/10.21105/joss.01462</a></p>
+</div>
+<div id="technical-papers" class="section level2">
+<h2>technical papers</h2>
+<ul>
+<li><a href="https://prod.wp.cdn.aws.wfu.edu/sites/202/2018/05/oir_survey_methodology.pdf"><strong>Office of Institutional Research Survey Methodology</strong></a>, <em>Wake Forest University</em>, May 2018</li>
 </ul>
 </div>
 <div id="manuscript" class="section level2">
@@ -433,10 +426,6 @@ $(document).ready(function () {
 <li><p><a href="https://mdewitt.shinyapps.io/bias_simulation/"><strong>Algorithmic Bias Simulator</strong></a> February 2019</p></li>
 </ul>
 </div>
-<div id="software" class="section level2">
-<h2>software</h2>
-<p>DeWitt et al., (2019). tidyqwi: A Tidy Approach to Accessing The US Census Bureau’s Quarterly Workforce Indicators. Journal of Open Source Software, 4(38), 1462, <a href="https://doi.org/10.21105/joss.01462" class="uri">https://doi.org/10.21105/joss.01462</a></p>
-</div>
 <div id="patents" class="section level2">
 <h2>patents</h2>
 <p>FR Appl. No. 18/51018 filed 7 February 2018 (N/R 2017PAT00317FR) : Procede d’identifier, gerer et réincorporer les produits complexes comme les produits valorises (<em>applied</em>)</p>
@@ -460,6 +449,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

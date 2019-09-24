@@ -6,8 +6,6 @@ title: "Welcome"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Welcome to my website!
-
 # My Professional Passions
 
 * Statistics
@@ -34,10 +32,5 @@ Welcome to my website!
 
 * Improving access to transportation
 
-* Touring breweries
-
-* Food and Travel
-
-* Live music
 
  

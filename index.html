@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -256,18 +257,6 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -386,7 +375,6 @@ $(document).ready(function () {
 </div>
 
 
-<p>Welcome to my website!</p>
 <div id="my-professional-passions" class="section level1">
 <h1>My Professional Passions</h1>
 <ul>
@@ -406,9 +394,6 @@ $(document).ready(function () {
 <li><p>Family</p></li>
 <li><p>R (still a passion)</p></li>
 <li><p>Improving access to transportation</p></li>
-<li><p>Touring breweries</p></li>
-<li><p>Food and Travel</p></li>
-<li><p>Live music</p></li>
 </ul>
 </div>
 
@@ -429,6 +414,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

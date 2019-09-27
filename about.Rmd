@@ -6,29 +6,31 @@ title: "About Me"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Currently
+## Currently
 
-I'm a data scientist at [Cone Health](https://www.conehealth.com/) in Greensboro, NC. I come to the world of higher education after nearly ten years in manufacturing and two in higher education. My interests are in: 
+I'm a data scientist at [Cone Health](https://www.conehealth.com/) in Greensboro, NC. I come to the world of healthcare after nearly ten years in manufacturing and two in higher education. My interests are in: 
 
 * General Data Science
 
-* Bayesian Statistics
+* Bayesian Inference
 
 * Causal Inference
+
+* Econometrics
 
 * Survey Analysis
 
 * Applied Machine Learning and Prediction
 
-* Simulation
+* Simulation and Optimization
 
 Additionally, I am an advocate for improving mobility. In my spare time I volunteer as a member of the Winston-Salem Transportation Coalition where we advocate for better public transit. I employ data science techniques in order to quantify and shed light on the issues. 
 
 You can read more about my work [here](presentations.html)
 
-# Before
+## Before
 
-I came into statistics and data science from chemical engineering (which is what I studied at University). I also minored in philosophy and wrote my honors thesis in the English department. The liberal arts greatly increased my ability to communicate complex topics, simply. 
+I came into statistics and data science from chemical engineering (which is what I studied at University). I also minored in philosophy and wrote my honors thesis in the English department.
 
 After graduation I worked in industrial engineering at Michelin North America in plant industrial engineering and continuous improvement and at the central level in industrial engineering, project management and decision support and analysis.
 

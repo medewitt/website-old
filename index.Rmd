@@ -6,25 +6,27 @@ title: "Welcome"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# My Professional Passions
+## My Professional Passions
 
 * Statistics
 
 * R 
 
-* Bayesian Statistics/ Predictive Modeling
+* Bayesian Inference
 
 * Causal Inference
 
+* Econometrics
+
 * Survey Analysis
 
-* Data visualisation
+* Applied Machine Learning and Prediction
 
-* Monte Carlo Simulation
+* Simulation and Optimization
 
 * Teaching
 
-# Non Statistics...
+## Non Statistics...
 
 * Family
 

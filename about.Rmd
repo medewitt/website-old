@@ -26,7 +26,7 @@ I'm a data scientist at [Cone Health](https://www.conehealth.com/) in Greensboro
 
 Additionally, I am an advocate for improving mobility. In my spare time I volunteer as a member of the Winston-Salem Transportation Coalition where we advocate for better public transit. I employ data science techniques in order to quantify and shed light on the issues. 
 
-You can read more about my work [here](presentations.html)
+You can read more about my work [here](presentations.html). Additionally, I maintain a site regarding local politics and economic analysis. You can read that [here](https://www.nctriadresearch.com/).
 
 ## Before
 

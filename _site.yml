@@ -36,6 +36,8 @@ navbar:
           href: advanced_analysis_in_r/index.html
         - text: "Methods and Resources"
           href: resources/index.html
+        - text: "Reading Notes"
+          href: https://www.dewittlab.com
 
 output:
   html_document:

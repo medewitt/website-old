@@ -12,4 +12,4 @@ Additionally, I have experience in manufacturing and higher education.
 My interests are in Bayesian inference, econometrics, survey analysis, forecasting, and causal inference. 
 
 In addition to my professional work, I apply the tools of the trade on local community projects and subjects of interest.
-This includes analysis of local economic policy, transportation availability, policing, and politicals. I'm passionate about data informed policy and decision-making and scientific communication in general.
+This includes analysis of local economic policy, transportation availability, policing, and politics. I'm passionate about data informed policy and decision-making and scientific communication in general.

@@ -1,38 +1,15 @@
 ---
-title: "Welcome"
+title: "Greetings"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## My Professional Passions
+I'm Michael DeWitt.
+I'm a data scientist and applied statistician working in health care and healthcare analytics.
+Additionally, I have experience in manufacturing and higher education.
+My interests are in Bayesian inference, econometrics, survey analysis, forecasting, and causal inference. 
 
-* Statistics
-
-* R 
-
-* Bayesian Inference
-
-* Causal Inference
-
-* Econometrics
-
-* Survey Analysis
-
-* Applied Machine Learning and Prediction
-
-* Simulation and Optimization
-
-* Teaching
-
-## Non Statistics...
-
-* Family
-
-* R (still a passion)
-
-* Improving access to transportation
-
-
- 
+In addition to my professional work, I apply the tools of the trade on local community projects and subjects of interest.
+This includes analysis of local economic policy, transportation availability, policing, and politicals. I'm passionate about data informed policy and decision-making and scientific communication in general.

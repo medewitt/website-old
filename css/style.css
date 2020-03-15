@@ -41,3 +41,27 @@ body {
 .navbar {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+#winston {
+  width: 100%;
+  background-image: url(../figs/winstonsalem.png);
+  height: 200px;
+  background-position: center;
+  padding-bottom: 25px;
+}
+
+#graphs {
+  width: 100%;
+  background-image: url(../figs/index-page.png);
+  height: 200px;
+  background-position: center;
+  padding-bottom: 25px;
+}
+
+#prez {
+  width: 100%;
+  background-image: url(../figs/michael-lecture-small.png);
+  height: 200px;
+  background-position: center;
+  padding-bottom: 25px;
+}

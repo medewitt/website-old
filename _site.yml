@@ -40,9 +40,11 @@ navbar:
           href: https://www.dewittlab.com
 
 output:
-  html_document:
+  bookdown::html_document2:
     theme: journal
-    highlight: textmate
+    highlight: tango
     css: css/style.css
+    toc: false
+    number_sections: false
     includes:
       in_header: GA.html

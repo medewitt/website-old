@@ -6,6 +6,7 @@ title: "Greetings"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<br>
 I'm Michael DeWitt.
 I'm a data scientist and applied statistician working in health care and healthcare analytics.
 Additionally, I have experience in manufacturing and higher education.

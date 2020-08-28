@@ -34,3 +34,8 @@ I came into statistics and data science from chemical engineering (which is what
 After graduation I worked in industrial engineering at Michelin North America in plant industrial engineering and continuous improvement and at the central level in industrial engineering, project management and decision support and analysis.
 
 It you want to learn more, check out my resume [here](docs/DeWittResume.pdf).
+
+<details>
+<summary><h2>Short Bio</h2> </summary>
+Michael DeWitt is an applied statistician and data scientist working in health care analytics and infectious disease modeling at Cone Health, one of the largest healthcare networks in North Carolina. Prior to healthcare, Michael has over ten years of experience in higher education analytics and manufacturing. His specialties are Bayesian inference, hierarchical modeling, survey design and analysis,  simulation and optimization, network analysis, and applied predictive modeling. He holds a bachelor's degree in Chemical Engineering from Clemson University and a Master's Degree in Statistics from North Carolina State University.
+</details>

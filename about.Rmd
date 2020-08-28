@@ -9,21 +9,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Currently
 
-I'm a data scientist at [Cone Health](https://www.conehealth.com/) in Greensboro, NC. I come to the world of healthcare after nearly ten years in manufacturing and two in higher education. My interests are in: 
-
-* General Data Science
+I'm an applied statistician and data scientist at [Cone Health](https://www.conehealth.com/) in Greensboro, NC. I come to the world of healthcare after nearly ten years in manufacturing and two in higher education. My interests are in: 
 
 * Bayesian Inference
 
 * Causal Inference
-
-* Econometrics
 
 * Survey Analysis
 
 * Applied Machine Learning and Prediction
 
 * Simulation and Optimization
+
+* Infectious Disease Modelling
 
 Additionally, I am an advocate for improving mobility. In my spare time I volunteer as a member of the Winston-Salem Transportation Coalition where we advocate for better public transit. I employ data science techniques in order to quantify and shed light on the issues. 
 
